@@ -1,20 +1,231 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Top NavBar Start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/Logo.png" height="40" width="100" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Politics
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br>
+<!-- Top NavBar End -->
+<div class="container" style="max-width: 98%;">
+
+  <!-- 6 Big News Start -->
+  <div class="row">
+    <div class="col-sm-4" style="padding: 2px;" *ngFor="let Feed of TopStories">
+      <div class="card card-inverse">
+        <img class="card-img" src="{{Feed.headLineImage}}" alt="Card image">
+        <div class="card-img-overlay">
+          <div class="catagory">{{Feed.catagory}}</div>
+          <p class="card-text">{{Feed.headline}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 6 Big News End -->
+  <br>
+  <div class="row">
+    <div class="col-sm-8" style="padding: 2px;">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">
+            All Stories
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-sm-4 mostReadDesktop" style="padding: 2px;">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">
+            Most Read
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- All Feed list Start -->
+    <div class="col-sm-8" style="max-height:2000px;overflow: scroll; padding: 2px;overflow-x: hidden;">
+      <!-- <div class="row" *ngFor="let Feed of AllStories">
+        <div class="col-sm-4">
+          <div class="card" style="border:none;">
+            <div class="card-body">
+              <img src="{{Feed.headLineImage}}" class="AllStoryImg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="card" style="border:none;">
+            <div class="card-body">
+              <h5 class="card-title">{{Feed.headline}}</h5>
+              <a href="#" class="btn btn-primary">{{Feed.catagory}}</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="list-group" *ngFor="let Feed of AllStories">
+        <a href="#" class="list-group-item  list-group-item-action flex-column align-items-start" style="border: none">
+          <div class="d-flex flex-row">
+            <div class="d-inline-flex p-2">
+              <img src="{{Feed.headLineImage}}" style="height:150px;width:217px;  box-shadow: 1px 1px 1px 1px grey;" alt="">
+            </div>
+            <div class="d-flex p-2">
+              <div class="mb-1 allstories_headline">
+                {{Feed.headline}}
+                <br>
+                <!-- <button type="button" class="btn-sm">
+                    Authour &nbsp;<span class="badge badge-light">{{Feed.authourName}}</span>
+                  </button> -->
+                <button type="button" class="btn-sm btn-outline-primary">
+                  Authour &nbsp;
+                  <span class="badge badge-danger">{{Feed.authourName}}</span>
+                  <br>
+                </button>
+                <h6>
+                  <span class="badge badge-warning">{{Feed.catagory}}</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+    <!-- All Feed List End -->
+
+
+    <!--Most Read Feed Start -->
+    <div class="col-sm-4">
+
+      <div class="mostReadmobile" style="padding: 2px;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              Most Read
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div class="list-group" *ngFor="let Feed of MostRead">
+        <a href="#" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+          <div class="d-flex flex-row">
+            <div class="d-inline-flex p-2">
+              <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+            </div>
+            <div class="d-flex p-2">
+              <p class="mb-1">{{Feed.headline}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <br>
+      <div class="SocialConnect" style="padding: 2px;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              Connect Feedtalk
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div class="d-flex flex-row">         
+        <div class="d-flex p-2">              
+          <a href=""> <div class="mb-1" style="padding: 1px;"><img src="../assets/facebooklogo.png"/></div></a>
+          <a href=""> <div class="mb-1" style="padding: 1px;"><img src="../assets/linkedinlogo.png"/></div></a>
+          <a href=""> <div class="mb-1" style="padding: 1px;"><img src="../assets/youtubelogo.png"/></div></a>
+          <a href=""> <div class="mb-1" style="padding: 1px;"><img src="../assets/twitterlogo.png"/></div></a>
+                  
+        </div> 
+        
+      </div>
+      <!--Most Read Feed End -->
+    </div>
+
+
+
+
+
+
+  </div>
+
+  <!-- News Links -->
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-12" style="padding: 2px;">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">
+            News Links
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" style="padding: 2px;">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Top Story</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Technology</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-2" style="padding: 2px;" *ngFor="let FeedLink of LatestLinks">
+      <div class="card card-inverse2">
+        <img class="card-img" src="{{FeedLink.headlineImageUrl}}" alt="Card image">
+        <div class="card-img-overlay smalloverlay">
+          <span class="badge badge-primary">{{FeedLink.sourceAgency}}</span>
+          <!-- <div class="catagory2">{{FeedLink.catagory}}</div> -->
+          <p class="card-text">{{FeedLink.headline}}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/Logo.png" height="40" width="100" />
+  </a>
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Politics
+        <span class="sr-only">(current)</span>
+      </a>
+    </li>
+  </ul>
+  <button class="btn primary" type="submit" (click)="scrollToTop()">TOP</button>
+</nav>
