@@ -1,0 +1,197 @@
+  <div class="container" style="max-width: 98%;"> 
+  <br>  
+    <!-- 6 Big News Start -->
+    <div class="row">
+      <div class="col-sm-4" style="padding: 2px;" *ngFor="let Feed of TopStories" (click)="forwardURL()">
+        <div class="card card-inverse">
+          <img class="card-img" src="{{Feed.headLineImage}}" alt="Card image">
+          <div class="card-img-overlay">
+            <div class="catagory">{{Feed.catagory}}</div>
+            <p class="card-text">{{Feed.headline}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 6 Big News End -->
+    <br>
+    <div class="row">
+      <div class="col-sm-8" style="padding: 2px;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              All Stories
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-sm-4 mostReadDesktop" style="padding: 2px;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              Most Read
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  
+    <div class="row">
+      <!-- All Feed list Start -->
+      <div class="col-sm-8" style="max-height:2000px;overflow: scroll; padding: 2px;overflow-x: hidden;">
+        <div class="list-group" *ngFor="let Feed of AllStories">
+          <a href="#" class="list-group-item all_stories_list  list-group-item-action flex-column align-items-start" style="border: none">
+            <div class="d-flex flex-row">
+              <div class="d-inline-flex p-2">
+                <img src="{{Feed.headLineImage}}" class="ALL_STORIES_IMG" alt="">
+              </div>
+              <div class="d-flex p-2">
+                <div class="mb-1 allstories_headline">
+                  {{Feed.headline}}
+                  <br>
+                  <!-- <button type="button" class="btn-sm">
+                      Authour &nbsp;<span class="badge badge-light">{{Feed.authourName}}</span>
+                    </button> -->
+                  <button type="button" class="btn-sm btn-outline-primary allstory_authourname">
+                    Authour &nbsp;
+                    <span class="badge badge-danger">{{Feed.authourName}}</span>
+                    <br>
+                  </button>
+                  <h6>
+                    <span class="badge badge-warning">{{Feed.catagory}}</span>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+  
+      </div>
+      <!-- All Feed List End -->
+  
+  
+      <!--Most Read Feed Start -->
+      <div class="col-sm-4">
+  
+        <div class="mostReadmobile" style="padding: 2px;">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">
+                Most Read
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div class="list-group" *ngFor="let Feed of MostRead">
+          <a href="#" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+            <div class="d-flex flex-row">
+              <div class="d-inline-flex p-2">
+                <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+              </div>
+              <div class="d-flex p-2">
+                <p class="mb-1">{{Feed.headline}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <br>
+        <div class="SocialConnect" style="padding: 2px;">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">
+                Feedtalk Social
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="d-flex p-2">
+            <a href="" onClick="MyWindow=window.open('https://touch.facebook.com/feedtalk','MyWindow',width=600,height=500); return false;">
+              <div class="mb-1" style="padding: 1px;">
+                <img src="../assets/facebooklogo.png" />
+              </div>
+            </a>
+            <a href="" onClick="MyWindow=window.open('https://twitter.com/intent/follow?&ref_src=twsrc%5Etfw&screen_name=FeedtalkNews&tw_p=followbutton','MyWindow',width=600,height=500); return false;">
+              <div class="mb-1" style="padding: 1px;">
+                <img src="../assets/linkedinlogo.png" />
+              </div>
+            </a>
+            <a href="" onClick="MyWindow=window.open('https://www.youtube.com/channel/UCBWLNhblPOsc75HejxMk_Rw?view_as=subscriber','MyWindow',width=600,height=500); return false;">
+              <div class="mb-1" style="padding: 1px;">
+                <img src="../assets/youtubelogo.png" />
+              </div>
+            </a>
+            <a href="#" onClick="MyWindow=window.open('https://twitter.com/intent/follow?&ref_src=twsrc%5Etfw&screen_name=FeedtalkNews&tw_p=followbutton','MyWindow',width=600,height=500); return false;">
+              <div class="mb-1" style="padding: 1px;">
+                <img src="../assets/twitterlogo.png" />
+              </div>
+            </a>
+  
+          </div>
+  
+        </div>
+        <!--Most Read Feed End -->
+        <a class="twitter-timeline" data-height="550" data-theme="light" href="https://twitter.com/FeedtalkNews?ref_src=twsrc%5Etfw">Tweets by FeedtalkNews</a>
+        <div class="fb-page" data-href="https://www.facebook.com/feedtalk/" data-tabs="timeline" data-small-header="false" 
+          data-height="580"  data-width="500" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/feedtalk/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/feedtalk/">FeedTalk</a>
+          </blockquote>
+        </div>
+      </div>
+  
+  
+  
+  
+  
+  
+    </div>
+  
+    <!-- News Links -->
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm-12" style="padding: 2px;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              News Links
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="padding: 2px;">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Top Story</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Technology</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-2" style="padding: 2px;" *ngFor="let FeedLink of LatestLinks">
+        <div class="card card-inverse2">
+          <img class="card-img" src="{{FeedLink.headlineImageUrl}}" alt="Card image">
+          <div class="card-img-overlay smalloverlay">
+            <span class="badge badge-primary">{{FeedLink.sourceAgency}}</span>
+            <!-- <div class="catagory2">{{FeedLink.catagory}}</div> -->
+            <p class="card-text">{{FeedLink.headline}}</p>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
