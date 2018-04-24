@@ -160,6 +160,12 @@
       .flashnews{
           padding: 0 !important;
       }
+      .card-inverse2 {
+        height: 200px;      
+      }
+      .smalloverlay {
+          top: 125px;
+       }
   }
   @media screen and (min-width: 634px) {   
       .mostReadmobile{

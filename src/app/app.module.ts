@@ -5,10 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ArticlereaderComponent } from './articlereader/articlereader.component';
 import { HomeComponent } from './home/home.component';
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+
 
 const appRoutes: Routes = [
   { path: 'news/:urlLink', component: ArticlereaderComponent },
   { path: '', component: HomeComponent }
+
 
 ]
 
@@ -16,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent, 
     ArticlereaderComponent, 
-    HomeComponent
+    HomeComponent,
+    EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,

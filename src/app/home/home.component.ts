@@ -11,15 +11,16 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(public http: HttpClient,public router:Router) {   
+  constructor(public http: HttpClient, public router: Router) {
     this.getTopStories();
     this.getAllStories();
     this.getMostRead();
     this.getLatestNewsLinks();
- 
+
   }
-  public forwardURL(){
-    console.log(this.router.navigate(['news/xxxx']));
+  public forwardURL(urlLink: string) {   
+    window.open("http://localhost:4200/news/"+urlLink,"_self");
+    //this.router.navigate(['news/' + urlLink]);
   }
   ngOnInit() {
     $(".mostread").hover(function () {
@@ -27,7 +28,7 @@ export class HomeComponent {
     });
 
   }
-  public APIHost = "http://192.168.1.6:8080"
+  public APIHost = "http://192.168.1.6:8080";
   public AllStories;
   public TopStories;
   public LatestLinks;
