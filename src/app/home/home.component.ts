@@ -18,8 +18,8 @@ export class HomeComponent {
     this.getLatestNewsLinks();
 
   }
-  public forwardURL(urlLink: string) {   
-    window.open("http://localhost:4200/news/"+urlLink,"_self");
+  public forwardURL(urlLink: string) {
+    window.open("http://localhost:4200/news/" + urlLink, "_self");
     //this.router.navigate(['news/' + urlLink]);
   }
   ngOnInit() {
@@ -28,7 +28,7 @@ export class HomeComponent {
     });
 
   }
-  public APIHost = "http://192.168.1.6:8080";
+  public APIHost = "http://localhost:8080";
   public AllStories;
   public TopStories;
   public LatestLinks;
@@ -40,7 +40,7 @@ export class HomeComponent {
     });
   }
   public getAllStories() {
-    this.http.get(this.APIHost + "/feed/mostrecent").subscribe(data => {
+    this.http.get(this.APIHost + "/feed/mostrecent/top14").subscribe(data => {
       this.AllStories = data;
     });
   }
