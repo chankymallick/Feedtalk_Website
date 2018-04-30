@@ -30,7 +30,7 @@ interface Feed {
 
 export class ArticlereaderComponent implements OnInit {
 
-  public APIHost = "http://localhost:8080";
+  public APIHost = "http://192.168.1.6:8080";
   public feed: Feed;
   public nextFeed: Feed;
   public tags: string;
@@ -47,7 +47,7 @@ export class ArticlereaderComponent implements OnInit {
     this.getNonPoliticsFeeds();
   }
   public forwardURL(urlLink: string) {
-    window.open("http://localhost:4200/news/" + urlLink, "_self");
+    window.open("http://192.168.1.6:4200/article/" + urlLink, "_self");
   }
   public getArticle() {
     this.http.get(this.APIHost + "/feed/FeedByUrl/" + this.parameterLink + "/").subscribe(data => {
@@ -71,15 +71,28 @@ export class ArticlereaderComponent implements OnInit {
     }
     if (type === "gp") {
       window.open("https://plus.google.com/share?url=https://goo.gl/GvWjyt");
+      
+    }
+    if (type === "li") {
+      window.open("http://www.linkedin.com/shareArticle?mini=true&url=https://goo.gl/GvWjyt");
+
     }
     // if (type === "fb") {
     //   window.open("https://www.facebook.com/sharer/sharer.php?u=http://localhost:4200/news/" + urlLink + "&amp;src=sdkpreparse");
     // }
     // if (type === "twt") {
-    //   window.open("https://www.twitter.com/share?url=http://localhost:4200/news/" + urlLink + "&amp;src=sdkpreparse");
+    //   window.open("https://www.twitter.com/share?url=http://localhost:4200/news/" + urlLink);
     // }
     // if (type === "gp") {
-    //   window.open("https://plus.google.com/share?url=http://localhost:4200/news/" + urlLink + "&amp;src=sdkpreparse");
+    //   window.open("https://plus.google.com/share?url=http://localhost:4200/news/" + urlLink);
+    // }
+    // if (type === "li") {
+    //   window.open("http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4200/news/" + urlLink );
+
+    // }
+    // if (type === "wh") {
+    //   window.open("whatsapp://send?text=http://localhost:4200/news/" + urlLink );
+
     // }
 
     

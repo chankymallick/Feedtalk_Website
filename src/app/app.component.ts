@@ -16,7 +16,8 @@ export class AppComponent {
     this.getBreakingNews();
     this.getCricketScore();
   }
-  public APIHost = "http://localhost:8080";
+  //public APIHost = "http://localhost:8080";
+  public APIHost = "http://192.168.1.6:8080";
   public Breakingnews;
   public CricetScore = "";
 

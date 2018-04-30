@@ -15,12 +15,14 @@ export class HomeComponent {
     this.getTopStories();
     this.getAllStories();
     this.getMostRead();
-    this.getLatestNewsLinks();
+    this.getLatestNewsLinks("TOPSTORY");
 
   }
   public forwardURL(urlLink: string) {
-    window.open("http://localhost:4200/news/" + urlLink, "_self");
-    //this.router.navigate(['news/' + urlLink]);
+    window.open("http://192.168.1.6:4200/article/" + urlLink, "_self");
+  }
+  public forwardlLink(urlLink:string){ 
+    window.open("http://192.168.1.6:4200/newslinks/" + urlLink, "_self");
   }
   ngOnInit() {
     $(".mostread").hover(function () {
@@ -28,12 +30,16 @@ export class HomeComponent {
     });
 
   }
-  public APIHost = "http://localhost:8080";
+  public APIHost = "http://192.168.1.6:8080";
   public AllStories;
   public TopStories;
   public LatestLinks;
   public MostRead;
+   
 
+  public newsLinks(type: string) {
+   this.getLatestNewsLinks(type)
+  }
   public getTopStories() {
     this.http.get(this.APIHost + "/feed/mostrecent/top6").subscribe(data => {
       this.TopStories = data;
@@ -44,8 +50,8 @@ export class HomeComponent {
       this.AllStories = data;
     });
   }
-  public getLatestNewsLinks() {
-    this.http.get(this.APIHost + "/feedlinks/TOPSTORY").subscribe(data => {
+  public getLatestNewsLinks(type:string) {
+    this.http.get(this.APIHost + "/feedlinks/"+type).subscribe(data => {
       this.LatestLinks = data;
     });
   }

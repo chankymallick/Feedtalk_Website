@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { ArticlereaderComponent } from './articlereader/articlereader.component';
 import { HomeComponent } from './home/home.component';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+import { LinksreaderComponent } from './linksreader/linksreader.component';
 
 
 const appRoutes: Routes = [
-  { path: 'news/:urlLink', component: ArticlereaderComponent },
+  { path: 'article/:urlLink', component: ArticlereaderComponent },
+  { path: 'newslinks/:urlLink', component: LinksreaderComponent },
   { path: '', component: HomeComponent }
 
 
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent, 
     ArticlereaderComponent, 
     HomeComponent,
-    EscapeHtmlPipe
+    EscapeHtmlPipe,
+    LinksreaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,204 @@
+<div class="container" style="max-width: 95%;">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row contentHeadline">
+        {{FeedLink.headline}}
+      </div>
+      <div class="row" style="padding:15px;">
+        <h5>
+          <span class="badge badge-danger">{{getTimeInterval(FeedLink.linkDate)}}</span>
+        </h5> &nbsp;&nbsp;&nbsp;
+        <h5>
+          <span class="badge badge-info">{{FeedLink.catagory}}</span>
+        </h5>
+      </div>
+    </div>
+    <div class="col-sm-9"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9">
+
+      <div class="row" style="padding-top:25px;">
+        <div class="col-sm-12">
+          <img class="img-fluid article_image" src="{{FeedLink.contentImageUrl}}" alt="Image">
+        </div>
+      </div>
+      <hr>
+      <div class="row" style="padding-top:25px;">
+        <div class="col-sm-12">
+          <a (click)="shareLinks('twt',FeedLink.linkUrl)" class="fa fa-twitter"></a>
+          <a (click)="shareLinks('fb',FeedLink.linkUrl)" class="fa fa-facebook"></a>
+          <a (click)="shareLinks('gp',FeedLink.linkUrl)" class="fa fa-google"></a>
+          <a href="whatsapp://send?text={{FeedLink.linkUrl}}" class="fa fa-whatsapp"></a>
+          <a (click)="shareLinks('li',FeedLink.linkUrl)" class="fa fa-linkedin"></a>
+        </div>
+      </div>
+      <div class="row" style="padding-top:15px;">
+        <div class="col-sm-12">
+          <h5>
+            <span class="badge badge-warning">By {{FeedLink.sourceAgency}}</span>
+          </h5>
+        </div>
+      </div>
+      <div class="row article_content" style="padding-top:25px;" [innerHTML]='FeedLink.contentInitial | keepHtml'>
+      </div>
+      <div class="row preview">
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-danger btn-lg btn-block" (click)="forwardSource(FeedLink.linkUrl)">READ WHOLE ARTICLE</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-3" style="padding-top: 25px;padding-bottom: 20px;">
+
+
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              Most Read
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+
+
+      <div class="list-group" *ngFor="let Feed of MostRead" (click)="forwardURL(Feed.urlLink)">
+        <a class="list-group-item mostread list-group-item-action flex-column align-items-start" style="padding:0px;">
+          <div class="d-flex flex-row">
+            <div class="d-inline-flex p-2">
+              <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+            </div>
+            <div class="d-flex p-2">
+              <p class="mb-1">{{Feed.headline}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <br>
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              Interesting
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+
+      <div class="list-group" *ngFor="let Feed of NonPolitics" (click)="forwardURL(Feed.urlLink)">
+        <a class="list-group-item mostread list-group-item-action flex-column align-items-start" style="padding:0px;">
+          <div class="d-flex flex-row">
+            <div class="d-inline-flex p-2">
+              <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+            </div>
+            <div class="d-flex p-2">
+              <p class="mb-1">{{Feed.headline}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let Feed of RelatedArticle" (click)="forwardURL(Feed.urlLink)" style="margin-bottom: 20px;">
+      <div class="card">
+        <img class="card-img-top" src="{{Feed.headLineImage}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{Feed.headline}}</h5>
+          <p class="card-text">{{Feed.contentPreview}}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">{{getTimeInterval(Feed.publishingDate)}}</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12" style="padding: 5px;">
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" (click)="newsLinks('TOPSTORY')">
+          <a class="nav-link active" id="TOPSTORY-tab" data-toggle="tab" href="#TOPSTORY" role="tab" aria-controls="TOPSTORY" aria-selected="true">TOPSTORY</a>
+        </li>
+        <li class="nav-item" (click)="newsLinks('CRICKET')">
+          <a class="nav-link" id="CRICKET-tab" data-toggle="tab" href="#CRICKET" role="tab" aria-controls="CRICKET" aria-selected="false">CRICKET</a>
+        </li>
+        <li class="nav-item" (click)="newsLinks('MOVIES')">
+          <a class="nav-link" id="MOVIES-tab" data-toggle="tab" href="#MOVIES" role="tab" aria-controls="MOVIES" aria-selected="false">MOVIES</a>
+        </li>
+        <li class="nav-item" (click)="newsLinks('TECH')">
+          <a class="nav-link" id="TECH-tab" data-toggle="tab" href="#TECH" role="tab" aria-controls="TECH" aria-selected="false">TECH</a>
+        </li>
+      </ul>
+
+
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="TOPSTORY" role="tabpanel" aria-labelledby="TOPSTORY-tab">
+
+          <div class="row" style="margin:5px;">
+            <div class="col-sm-2" style="padding: 2px;" *ngFor="let FeedLink of LatestLinks" (click)="forwardlLink(FeedLink.linkId)">
+              <div class="card card-inverse2">
+                <img class="card-img" src="{{FeedLink.headlineImageUrl}}" alt="Card image">
+                <div class="card-img-overlay smalloverlay">
+                  <span class="badge badge-primary">{{FeedLink.sourceAgency}}</span>
+                  <p class="card-text">{{FeedLink.headline}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="CRICKET" role="tabpanel" aria-labelledby="CRICKET-tab">
+          <div class="row" style="margin:5px;">
+            <div class="col-sm-2" style="padding: 2px;" *ngFor="let FeedLink of LatestLinks" (click)="forwardlLink(FeedLink.linkId)">
+              <div class="card card-inverse2">
+                <img class="card-img" src="{{FeedLink.headlineImageUrl}}" alt="Card image">
+                <div class="card-img-overlay smalloverlay">
+                  <span class="badge badge-primary">{{FeedLink.sourceAgency}}</span>
+                  <p class="card-text">{{FeedLink.headline}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="MOVIES" role="tabpanel" aria-labelledby="MOVIES-tab">
+          <div class="row" style="margin:5px;">
+            <div class="col-sm-2" style="padding: 2px;" *ngFor="let FeedLink of LatestLinks" (click)="forwardlLink(FeedLink.linkId)">
+              <div class="card card-inverse2">
+                <img class="card-img" src="{{FeedLink.headlineImageUrl}}" alt="Card image">
+                <div class="card-img-overlay smalloverlay">
+                  <span class="badge badge-primary">{{FeedLink.sourceAgency}}</span>
+                  <p class="card-text">{{FeedLink.headline}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="TECH" role="tabpanel" aria-labelledby="TECH-tab">
+          <div class="row" style="margin:5px;">
+            <div class="col-sm-2" style="padding: 2px;" *ngFor="let FeedLink of LatestLinks" (click)="forwardlLink(FeedLink.linkId)">
+              <div class="card card-inverse2">
+                <img class="card-img" src="{{FeedLink.headlineImageUrl}}" alt="Card image">
+                <div class="card-img-overlay smalloverlay">
+                  <span class="badge badge-primary">{{FeedLink.sourceAgency}}</span>
+                  <p class="card-text">{{FeedLink.headline}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
