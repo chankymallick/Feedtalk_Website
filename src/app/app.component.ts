@@ -15,12 +15,34 @@ export class AppComponent {
   constructor(public router: Router, public http: HttpClient) {
     this.getBreakingNews();
     this.getCricketScore();
+    $(document).ready(function () {
+      $(window).resize(function () {
+        if ($(window).width() >= 980) {
+          // when you hover a toggle show its dropdown menu
+          $(".navbar .dropdown-toggle").hover(function () {
+            $(this).parent().toggleClass("show");
+            $(this).parent().find(".dropdown-menu").toggleClass("show");
+          });
+          // hide the menu when the mouse leaves the dropdown
+          $(".navbar .dropdown-menu").mouseleave(function () {
+            $(this).removeClass("show");
+          });
+          // do something here
+        }
+      });
+    });
   }
   //public APIHost = "http://localhost:8080";
   public APIHost = "http://192.168.1.6:8080";
   public Breakingnews;
   public CricetScore = "";
-
+  public MenuFeeds;
+  public SearchString;
+  public loadFeedMenu(type: string) {
+    this.http.get(this.APIHost + "/feed/Top20FeedsByCatagory/" + type + "/").subscribe(data => {
+      this.MenuFeeds = data;
+    });
+  }
   public getBreakingNews() {
     this.http.get(this.APIHost + "/feedlinks/breakingnews").subscribe(data => {
       var wholetext = "";
@@ -41,6 +63,13 @@ export class AppComponent {
 
   }
   public scrollToTop() {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
+    var body = $("body, html");
+    body.animate({ scrollTop: 0 }, 500, function () {
+    });
+  }
+
+  public searchURL() {
+    window.open("http://192.168.1.6:4200/search/" + this.SearchString, "_self");
   }
 }

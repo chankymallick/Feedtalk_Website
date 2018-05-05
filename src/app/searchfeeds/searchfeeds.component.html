@@ -1,0 +1,23 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-success search_success" *ngIf="SearchCount" role="alert">
+      {{SearchCount}} articles found for  "{{searchquery}}"
+      </div>
+      <div class="alert alert-danger search_failure" *ngIf="! SearchCount" role="alert">
+        No content found for "{{searchquery}}"
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let Feed of SearchFeeds" (click)="forwardURL(Feed.urlLink)">
+      <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{Feed.catagory}}</div>
+        <div class="card-body text-primary">
+          <h5 class="card-title">{{Feed.headline}}</h5>
+          <p class="card-text">{{Feed.contentPreview}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

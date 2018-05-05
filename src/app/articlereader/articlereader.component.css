@@ -88,6 +88,12 @@
 /*When Goes Mobile*/
 
 @media screen and (max-width: 634px) {
+  .desktop_nextfeed{
+    display: none;
+  }
+  .mobile_nextfeed{
+    display: block;
+  }
   .contentHeadline {
     font-size: 36px;
     font-weight: bolder;
@@ -116,4 +122,11 @@
 
 /*When Goes Desktop*/
 
-@media screen and (min-width: 634px) {}
+@media screen and (min-width: 634px) {
+  .desktop_nextfeed{
+    display: block;
+  }
+  .mobile_nextfeed{
+    display: none;
+  }
+}

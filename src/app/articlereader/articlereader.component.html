@@ -34,8 +34,8 @@
           <a (click)="shareLinks('twt',feed.urlLink)" class="fa fa-twitter"></a>
           <a (click)="shareLinks('fb',feed.urlLink)" class="fa fa-facebook"></a>
           <a (click)="shareLinks('gp',feed.urlLink)" class="fa fa-google"></a>
-          <a  href="whatsapp://send?text={{feed.urlLink}}" class="fa fa-whatsapp"></a> 
-          <a (click)="shareLinks('li',feed.urlLink)" class="fa fa-linkedin"></a>        
+          <a href="whatsapp://send?text={{feed.urlLink}}" class="fa fa-whatsapp"></a>
+          <a (click)="shareLinks('li',feed.urlLink)" class="fa fa-linkedin"></a>
         </div>
       </div>
       <div class="row" style="padding-top:15px;">
@@ -85,7 +85,7 @@
           </div>
         </a>
       </div>
-      <br> 
+      <br>
       <div>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -113,7 +113,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" class="desktop_nextfeed">
     <div class="jumbotron" style="width: 100%;">
 
       <div class="d-flex flex-row">
@@ -122,7 +122,9 @@
         </div>
         <div class="d-flex p-2">
           <h1 class="display-4" (click)="forwardURL(nextFeed.urlLink)">
-            <div style="cursor: pointer;"><a href="/news/{{nextFeed.urlLink}}">{{nextFeed.headline}}</a></div>
+            <div style="cursor: pointer;">
+              <a href="/article/{{nextFeed.urlLink}}">{{nextFeed.headline}}</a>
+            </div>
             <hr class="my-4">
             <p class="lead">{{nextFeed.contentPreview}}</p>
           </h1>
@@ -132,6 +134,30 @@
       <a class="btn btn-primary btn-lg" (click)="getNextfeed(nextFeed.feedId)" role="button" style="color:white;">Next Story</a>
     </div>
   </div>
+
+  <div class="row" class="mobile_nextfeed">
+    <div class="card text-center">
+      <div class="card-header">
+        Next Article
+      </div>
+      <div class="card-body" style="background-color: #E9ECEF">
+        <div (click)="forwardURL(nextFeed.urlLink)">
+          <h5 class="card-title">
+            <a href="/article/{{nextFeed.urlLink}}">{{nextFeed.headline}}</a>
+          </h5>
+          <img src="{{nextFeed.headLineImage}}" style="height: 200px;width: 300px;" alt="">
+          <p class="card-text">{{nextFeed.contentPreview}}</p>
+        </div>
+        <a class="btn btn-primary btn-lg" (click)="getNextfeed(nextFeed.feedId)" role="button" style="color:white;">Next</a>
+      </div>
+      <div class="card-footer text-muted">
+        {{getTimeInterval(nextFeed.publishingDate)}}
+      </div>
+    </div>
+  </div>
+  <br>
+
+
 
 
   <!-- <div class="row">

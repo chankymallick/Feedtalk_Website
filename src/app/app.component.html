@@ -2,37 +2,280 @@
   <a class="navbar-brand" href="#">
     <img src="../assets/Logo.png" height="40" width="100" />
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Politics
-          <span class="sr-only">(current)</span>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a (mouseenter)="loadFeedMenu('POLITICS')" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          POLITICS
         </a>
+        <div class="dropdown-menu" style="border-radius: 0px !important;" aria-labelledby="navbarDropdown">
+          <!-- <div class="container"> -->
+          <div class="row" style="margin:5px;padding-top: 10px;">
+
+            <div class="col-sm-3" *ngFor="let Feed of MenuFeeds" style="margin-top: 10px;">
+              <div class="list-group">
+                <a style="padding: 0 !important;" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+                  <div class="d-flex flex-row">
+                    <div class="d-inline-flex p-2">
+                      <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+                    </div>
+                    <div class="d-flex p-2">
+                      <p class="mb-1">{{Feed.headline}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+
+
+
+
+          </div>
+          <!-- </div> -->
+
+        </div>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Fact Check
-          <span class="sr-only">(current)</span>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (mouseenter)="loadFeedMenu('FACTCHECK')" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          FACT CHECK
         </a>
+        <div class="dropdown-menu" style="border-radius: 0px !important;" aria-labelledby="navbarDropdown">
+          <!-- <div class="container"> -->
+          <div class="row" style="margin:5px;padding-top: 10px;">
+
+            <div class="col-sm-3" *ngFor="let Feed of MenuFeeds" style="margin-top: 10px;">
+              <div class="list-group">
+                <a style="padding: 0 !important;" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+                  <div class="d-flex flex-row">
+                    <div class="d-inline-flex p-2">
+                      <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+                    </div>
+                    <div class="d-flex p-2">
+                      <p class="mb-1">{{Feed.headline}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+
+
+
+
+
+
+          </div>
+          <!-- </div> -->
+
+        </div>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Offbeat
-          <span class="sr-only">(current)</span>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (mouseenter)="loadFeedMenu('INFORMATIVE')" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          INFORMATIVE
         </a>
+        <div class="dropdown-menu" style="border-radius: 0px !important;" aria-labelledby="navbarDropdown">
+          <!-- <div class="container"> -->
+          <div class="row" style="margin:5px;padding-top: 10px;">
+
+            <div class="col-sm-3" *ngFor="let Feed of MenuFeeds" style="margin-top: 10px;">
+              <div class="list-group">
+                <a style="padding: 0 !important;" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+                  <div class="d-flex flex-row">
+                    <div class="d-inline-flex p-2">
+                      <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+                    </div>
+                    <div class="d-flex p-2">
+                      <p class="mb-1">{{Feed.headline}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+
+
+
+
+
+
+          </div>
+          <!-- </div> -->
+
+        </div>
       </li>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (mouseenter)="loadFeedMenu('WORLD')" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          WORLD
+        </a>
+        <div class="dropdown-menu" style="border-radius: 0px !important;" aria-labelledby="navbarDropdown">
+          <!-- <div class="container"> -->
+          <div class="row" style="margin:5px;padding-top: 10px;">
+
+            <div class="col-sm-3" *ngFor="let Feed of MenuFeeds" style="margin-top: 10px;">
+              <div class="list-group">
+                <a style="padding: 0 !important;" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+                  <div class="d-flex flex-row">
+                    <div class="d-inline-flex p-2">
+                      <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+                    </div>
+                    <div class="d-flex p-2">
+                      <p class="mb-1">{{Feed.headline}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+
+
+
+
+
+
+          </div>
+          <!-- </div> -->
+
+        </div>
+      </li>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (mouseenter)="loadFeedMenu('HEALTH')" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          HEALTH
+        </a>
+        <div class="dropdown-menu" style="border-radius: 0px !important;" aria-labelledby="navbarDropdown">
+          <!-- <div class="container"> -->
+          <div class="row" style="margin:5px;padding-top: 10px;">
+
+            <div class="col-sm-3" *ngFor="let Feed of MenuFeeds" style="margin-top: 10px;">
+              <div class="list-group">
+                <a style="padding: 0 !important;" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+                  <div class="d-flex flex-row">
+                    <div class="d-inline-flex p-2">
+                      <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+                    </div>
+                    <div class="d-flex p-2">
+                      <p class="mb-1">{{Feed.headline}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+
+
+
+
+
+
+          </div>
+          <!-- </div> -->
+
+        </div>
+      </li>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (mouseenter)="loadFeedMenu('TECH')" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          TECH
+        </a>
+        <div class="dropdown-menu" style="border-radius: 0px !important;" aria-labelledby="navbarDropdown">
+       
+          <div class="row" style="margin:5px;padding-top: 10px;">
+
+            <div class="col-sm-3" *ngFor="let Feed of MenuFeeds" style="margin-top: 10px;">
+              <div class="list-group">
+                <a style="padding: 0 !important;" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+                  <div class="d-flex flex-row">
+                    <div class="d-inline-flex p-2">
+                      <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+                    </div>
+                    <div class="d-flex p-2">
+                      <p class="mb-1">{{Feed.headline}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+
+
+
+
+          </div>
+        </div>
+      </li>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (mouseenter)="loadFeedMenu('OTHERS')" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          OTHERS
+        </a>
+        <div class="dropdown-menu" style="border-radius: 0px !important;" aria-labelledby="navbarDropdown">
+          <!-- <div class="container"> -->
+          <div class="row" style="margin:5px;padding-top: 10px;">
+            <div class="col-sm-3" *ngFor="let Feed of MenuFeeds" style="margin-top: 10px;">
+              <div class="list-group">
+                <a style="padding: 0 !important;" class="list-group-item mostread list-group-item-action flex-column align-items-start">
+                  <div class="d-flex flex-row">
+                    <div class="d-inline-flex p-2">
+                      <img src="{{Feed.headLineImage}}" style="height: 67px;width: 70px;" alt="">
+                    </div>
+                    <div class="d-flex p-2">
+                      <p class="mb-1">{{Feed.headline}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+
+          </div>
+        </div>
+      </li>
+
+
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+    
+    <div class="form-inline my-2 my-lg-0">     
+      <input [(ngModel)]="SearchString" class="form-control mr-sm-2" id="searchinput" type="search" placeholder="Search" aria-label="Search">
+      <button (click)="searchURL()" class="btn btn-outline-primary my-2 my-sm-0" type="button">Search</button>
+    </div>
   </div>
+
+
 </nav>
 
-<div class="container" style="max-width: 98%;">
+
+
+
+<div class="container" style="max-width: 98%; ">
 
   <div class="row flashbar">
     <div class="col-sm-8" style="padding-left: 0px;padding-right: 0px;">
@@ -43,13 +286,13 @@
           </h5>
         </div>
         <div class="d-inline-flex" class="marquecontainer">
-          <p class="marquee" >
-            <span >
-            <section style="display: inline;" *ngFor="let Links of Breakingnews">
-              {{Links.headline}} &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;
-            </section>  
+          <p class="marquee">
+            <span>
+              <section style="display: inline;" *ngFor="let Links of Breakingnews">
+                {{Links.headline}} &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;
+              </section>
             </span>
-        </p>
+          </p>
         </div>
       </div>
     </div>
@@ -61,12 +304,12 @@
           </h5>
         </div>
         <div class="d-inline-flex" class="marquecontainer">
-            <p class="marquee" >
-                <span >               
-                    {{CricetScore}}               
-                </span>
-            </p>
-          
+          <p class="marquee">
+            <span>
+              {{CricetScore}}
+            </span>
+          </p>
+
         </div>
       </div>
     </div>
@@ -77,6 +320,8 @@
 
 <br>
 <br>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
     <img src="../assets/Logo.png" height="40" width="100" />

@@ -7,11 +7,13 @@ import { ArticlereaderComponent } from './articlereader/articlereader.component'
 import { HomeComponent } from './home/home.component';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 import { LinksreaderComponent } from './linksreader/linksreader.component';
-
+import { SearchfeedsComponent } from './searchfeeds/searchfeeds.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'article/:urlLink', component: ArticlereaderComponent },
   { path: 'newslinks/:urlLink', component: LinksreaderComponent },
+  { path: 'search/:query', component: SearchfeedsComponent },
   { path: '', component: HomeComponent }
 
 
@@ -23,9 +25,11 @@ const appRoutes: Routes = [
     ArticlereaderComponent, 
     HomeComponent,
     EscapeHtmlPipe,
-    LinksreaderComponent
+    LinksreaderComponent,
+    SearchfeedsComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(
